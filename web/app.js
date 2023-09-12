@@ -4,11 +4,11 @@ const { Pool } = require('pg');
 const app = express();
 
 const pool = new Pool({
-  user: $(POSTGRESQL_ADDON_USER),
-  host: $(POSTGRESQL_ADDON_HOST),
-  database: $(POSTGRESQL_ADDON_DB),
-  password: $(POSTGRESQL_ADDON_DB),
-  port: $(POSTGRESQL_ADDON_PORT)
+  user: process.env.POSTGRESQL_ADDON_USER,
+  host: process.env.POSTGRESQL_ADDON_HOST,
+  database: process.env.POSTGRESQL_ADDON_DB,
+  password: process.env.POSTGRESQL_ADDON_DB,
+  port: process.env.POSTGRESQL_ADDON_PORT
 });
 
 let visitCount = 0;
