@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
+  database:
+    image: postgres:14
+    environment:
+      - POSTGRES_PASSWORD=dev_password
+      - POSTGRES_USER=si5_sacc
+      - POSTGRES_DB=td_1
+    volumes:
+      - ./web/init.sql:/docker-entrypoint-initdb.d/init.sql
